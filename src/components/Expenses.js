@@ -1,41 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+
 import ExpenseItem from "./ExpenseItem";
 import NewExpense from "./NewExpense";
 function Expenses() {
-  const expenses = [
-    {
-      id: 1,
-      type: "Moto Insurance",
-      date: "1/2/2021",
-      price: "153,13",
-    },
-    {
-      id: 2,
-      type: "Car Insurance",
-      date: "9/11/2021",
-      price: "152,73",
-    },
-    {
-      id: 3,
-      type: "Bike Insurance",
-      date: "10/11/2021",
-      price: "52,73",
-    },
-  ];
+  // const initialValue = [{ id: 0, type: "", date: "", price: "" }];
+  // const [newExpense, setNewExpense] = useState(initialValue);
+  const expenses = [];
+
+  const newExpenseHandler = (expense) => {
+    // new expense from child
+    expenses.push(expense);
+  };
 
   return (
     <div>
-      <NewExpense />
-      <div>
-        {expenses.map((expense) => (
-          <ExpenseItem
-            key="id"
-            type={expense.type}
-            date={expense.date}
-            price={expense.price}
-          />
-        ))}
-      </div>
+      {" "}
+      <NewExpense newExpense={newExpenseHandler} />
+      {expenses.length
+        ? expenses.map((expense) => (
+            <ExpenseItem
+              key="id"
+              type={expense.type}
+              date={expense.date}
+              amount={expense.amount}
+            />
+          ))
+        : null}
     </div>
   );
 }
