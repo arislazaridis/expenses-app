@@ -22,17 +22,24 @@ function ExpenseForm(props) {
     // console.log(enteredtype);
     // console.log(enteredamount);
     // console.log(entereddate);
+    if (
+      entereddate.length != 0 ||
+      enteredamount.length != 0 ||
+      enteredtype.length != 0
+    ) {
+      const expenseData = {
+        type: enteredtype,
+        amount: enteredamount,
+        date: new Date(entereddate),
+      };
 
-    const expenseData = {
-      type: enteredtype,
-      amount: enteredamount,
-      date: new Date(entereddate),
-    };
-
-    props.onSaveExpenseData(expenseData);
-    setEnteredDate("");
-    setEnteredAmount("");
-    setEnteredType("");
+      props.onSaveExpenseData(expenseData);
+      setEnteredDate("");
+      setEnteredAmount("");
+      setEnteredType("");
+    } else {
+      alert("Please fill out all required fields");
+    }
   };
 
   return (
