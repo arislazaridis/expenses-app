@@ -22,6 +22,7 @@ function Expenses() {
         ? expenses.map((expense) => (
             <ExpenseItem
               key={expense.id}
+              value={expense.value}
               type={expense.type}
               date={expense.date.toString()}
               amount={expense.amount}

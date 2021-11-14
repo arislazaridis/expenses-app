@@ -5,6 +5,7 @@ function ExpenseForm(props) {
   const [enteredtype, setEnteredType] = useState("");
   const [enteredamount, setEnteredAmount] = useState("");
   const [entereddate, setEnteredDate] = useState("");
+  const [selectValue, setSelectValue] = useState("");
 
   const typeChangeHandler = (e) => {
     setEnteredType(e.target.value);
@@ -31,7 +32,9 @@ function ExpenseForm(props) {
         type: enteredtype,
         amount: enteredamount,
         date: new Date(entereddate),
+        value: selectValue,
       };
+      console.log(expenseData);
 
       props.onSaveExpenseData(expenseData);
       setEnteredDate("");
@@ -42,11 +45,24 @@ function ExpenseForm(props) {
     }
   };
 
+  const selectHandleChange = (e) => {
+    setSelectValue(e.target.value);
+    // console.log(selectValue);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="new-expense__controls">
+        <select id="dropdown" value={selectValue} onChange={selectHandleChange}>
+          <option value="N/A">N/A</option>
+          <option value="Car">Car</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Coffee">Coffee</option>
+          <option value="Food">Food</option>
+          <option value="Supermarket">Supermarket</option>
+        </select>
         <div className="new-expense__control">
-          <label>Type: </label>
+          <label>Info: </label>
           <input type="text" value={enteredtype} onChange={typeChangeHandler} />
         </div>
 
