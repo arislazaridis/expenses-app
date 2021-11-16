@@ -2,10 +2,12 @@ import React, { useState } from "react";
 
 import ExpenseItem from "./ExpenseItem";
 import NewExpense from "./NewExpense";
+import ExpensesFilter from "./ExpensesFilter";
 function Expenses() {
   // const initialValue = [{ id: 0, type: "", date: "", price: "" }];
   // const [newExpense, setNewExpense] = useState(initialValue);
   const [expenses, setExpenses] = useState([]);
+  const [filteredYear, setFiltedYear] = useState("2021");
 
   const newExpenseHandler = (expense) => {
     // new expense from child
@@ -15,9 +17,15 @@ function Expenses() {
     console.log(expense.date);
   };
 
+  const filterHandler = (selectedYear) => {
+    setFiltedYear(selectedYear);
+  };
+  console.log(filteredYear);
+
   return (
     <div>
       <NewExpense newExpense={newExpenseHandler} />
+      <ExpensesFilter selected={filteredYear} onChangeFilter={filterHandler} />
       {expenses.length
         ? expenses.map((expense) => (
             <ExpenseItem
