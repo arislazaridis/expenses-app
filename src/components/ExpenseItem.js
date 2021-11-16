@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ExpenseDate from "./ExpenseDate";
 
 import "./ExpenseItem.css";
 
@@ -7,9 +8,7 @@ function ExpenseItem(props) {
 
   return (
     <div className="expense-item">
-      <div className="expense-item__description">
-        <h4 style={{ color: "white" }}>Date: {date}</h4>
-      </div>
+      <ExpenseDate date={date} />
 
       <div className="expense-item__description">
         <h2>Value: {value}</h2>

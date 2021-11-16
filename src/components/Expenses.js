@@ -13,14 +13,14 @@ function Expenses() {
     // new expense from child
 
     setExpenses([...expenses, expense]);
-    console.log(expenses);
-    console.log(expense.date);
+    // console.log(expenses);
+    // console.log(expense.date);
   };
 
   const filterHandler = (selectedYear) => {
     setFiltedYear(selectedYear);
   };
-  console.log(filteredYear);
+  // console.log(filteredYear);
 
   return (
     <div>
