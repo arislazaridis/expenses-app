@@ -20,9 +20,7 @@ function ExpenseForm(props) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(enteredtype);
-    // console.log(enteredamount);
-    // console.log(entereddate);
+
     if (
       entereddate.length != 0 ||
       enteredamount.length != 0 ||
@@ -47,7 +45,6 @@ function ExpenseForm(props) {
 
   const selectHandleChange = (e) => {
     setSelectValue(e.target.value);
-    // console.log(selectValue);
   };
 
   return (
