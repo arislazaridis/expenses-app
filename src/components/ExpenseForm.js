@@ -31,7 +31,7 @@ function ExpenseForm(props) {
       const expenseData = {
         type: enteredtype,
         amount: enteredamount,
-        date: entereddate,
+        date: new Date(entereddate),
         value: selectValue,
       };
       console.log(expenseData);
